@@ -2,20 +2,20 @@
 
 基于 `gofiber` 和 `amis` , 快速构建 Web 工具应用
 
-## 技术栈
+### 技术栈
 
 - [fiber](https://github.com/gofiber/fiber)
 - [amis](https://github.com/baidu/amis)
 - [UmiJS](https://github.com/umijs/umi)
 - [antd](https://github.com/ant-design/ant-design)
 
-## 快速开始
+### 快速开始
 
 1. `clone` 本项目
 2. 安装依赖: `go mod tidy`
 3. 启动服务: `go run main.go`
 
-## 指南
+### 指南
 
 - 使用场景
     - 做一些小工具 (初衷)
