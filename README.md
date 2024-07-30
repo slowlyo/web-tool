@@ -27,13 +27,13 @@
     
 - 前端
     - 前端代码在 `/web` 目录下
-    - 默认使用 `go:embed` 将页面打包到二进制文件中 (/web/dist)
+    - 默认使用 `go:embed` 将页面打包到二进制文件中 (`/web/dist`)
     
 - 启动参数
     - port: 端口号, 默认 3000
         - eg: `go run main.go -port=3000`
         - 如果端口被占用, 会自动尝试 端口号 + 1 (100次)
-    - prod: 是否为生产环境, 默认 false
+    - prod: 是否为生产环境, 默认 `false`
         - eg: `go run main.go -prod`
             - 为 `true` 时, 将关闭页面的编辑功能
         - 原理
