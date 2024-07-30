@@ -2,6 +2,8 @@
 
 基于 `gofiber` 和 `amis` , 快速构建 Web 工具应用
 
+![](web-tool.png)
+
 ### 技术栈
 
 - [fiber](https://github.com/gofiber/fiber)
