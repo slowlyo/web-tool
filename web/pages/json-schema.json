@@ -1,0 +1,11 @@
+{
+    "type": "page",
+    "body": [
+        {
+            "label": "Json Schema",
+            "type": "action",
+            "actionType": "ajax",
+            "api": "get:/api/welcome"
+        }
+    ]
+}

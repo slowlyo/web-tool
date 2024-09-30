@@ -10,24 +10,23 @@ import (
 	"log"
 	"net/http"
 	"strconv"
-	"web-tool/pkg/core"
 	"web-tool/pkg/response"
 	"web-tool/routes"
 )
 
 var (
-	port        = flag.Int("port", 3000, "Port to listen on")
-	prod        = flag.Bool("prod", false, "The page editing function is disabled")
+	//go:embed web/*
+	dist embed.FS
+	// 运行端口
+	port = flag.Int("port", 3000, "Port to listen on")
+	// 是否使用打包的静态文件
+	useEmbed = true
+	// 最大尝试次数
 	maxAttempts = 100
 )
 
-//go:embed web/dist/*
-var dist embed.FS
-
 func main() {
 	flag.Parse()
-	core.SetProd(prod)
-	core.Init() // init the tool
 
 	app := fiber.New(fiber.Config{
 		AppName: "Web Tool",
@@ -41,11 +40,15 @@ func main() {
 
 	routes.Register(app)
 
-	app.Use("/", filesystem.New(filesystem.Config{
-		Root:       http.FS(dist),
-		Browse:     true,
-		PathPrefix: "web/dist",
-	}))
+	if useEmbed {
+		app.Use("/", filesystem.New(filesystem.Config{
+			Root:       http.FS(dist),
+			Browse:     true,
+			PathPrefix: "web",
+		}))
+	} else {
+		app.Static("/", "./web")
+	}
 
 	// not found
 	app.Use(func(c *fiber.Ctx) error {

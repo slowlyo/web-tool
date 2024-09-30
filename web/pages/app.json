@@ -1,0 +1,41 @@
+{
+    "status": 0,
+    "msg": "",
+    "data": {
+        "pages": [
+            {
+                "url": "/",
+                "redirect": "/welcome"
+            },
+            {
+                "children": [
+                    {
+                        "label": "首页",
+                        "icon": "fa fa-home",
+                        "url": "/welcome",
+                        "schema": {
+                            "type": "page",
+                            "className": "bg-gray-100",
+                            "body": {
+                                "type": "tpl",
+                                "tpl": "Welcome"
+                            }
+                        }
+                    },
+                    {
+                        "label": "Json Schema",
+                        "icon": "fa fa-file-o",
+                        "url": "json-schema",
+                        "schemaApi": "/pages/json-schema.json"
+                    },
+                    {
+                        "label": "Jsonp Schema",
+                        "icon": "fa fa-file",
+                        "url": "jsonp-schema",
+                        "schemaApi": "jsonp:/pages/jsonp-schema.js?callback=jsonpCallback"
+                    }
+                ]
+            }
+        ]
+    }
+}
